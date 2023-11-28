@@ -1,0 +1,8 @@
+<div class="page-container">
+	<header class="">
+		<img src="<%= asset_path("qrcode_header.png")%>" style="width: 100%;" >
+	</header>
+	<div class="login-msg-txt" style="padding-top: 15px;">Your QR code</div>
+
+    <div><%= @qr.html_safe %></div>
+</div>

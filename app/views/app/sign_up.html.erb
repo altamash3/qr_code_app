@@ -1,0 +1,52 @@
+<div class="page-container">
+	<header class="">
+		<img src="<%= asset_path("qrcode_header.png")%>" style="width: 100%;" >
+	</header>
+	<div class="login-lower-section">
+		<div class="page-body page-bd-login">
+			<div class="aadhaar-frm-wrpr" style="box-shadow: none;margin: 0;padding:0;">
+				<!-- <div class="login-nametxt">Hi <%#= @user&.username %> </div> -->
+				<!-- <div class="ref-code d-none">Referral code</div> -->
+				<div class="login-msg-txt">Create your account</div>
+				<div class="form-floating" id="mobile-tick">
+			        <input type="text" class="form-control input-mobile-checked" id="email_id" maxlength="1000" placeholder="Enter email id" name="mobile-number">
+			        <label for="mobile-number">Enter email id</label>
+			        <span id="mob-number-error" class="ferror d-none"></span>
+			    </div>
+			    <div class="form-floating" id="mobile-tick">
+			        <input type="text" class="form-control input-mobile-checked" id="email_password" maxlength="1000" placeholder="Enter password" name="mobile-number">
+			        <label for="mobile-number">Enter password</label>
+			        <span id="mob-number-error" class="ferror d-none"></span>
+			    </div>
+				<footer class="login-footer-btn">
+					<div id="generate_account" class="page-btn page-btn-arrow">Submit</div>
+				</footer>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<script type="text/javascript">
+
+
+	$("#generate_account").on("click", function(e) {
+	  e.preventDefault();
+	  var email_id = $("#email_id").val();
+	  var password_id = $("#email_password").val();
+	  $.ajax({
+	    url: 'create_sign_up',
+	    type: 'GET',
+	    dataType: 'json',
+	    data: {'email': email_id, 'password': password_id},
+	    success: function(response) {
+	      console.log(response.status);
+	      window.location = ('/app')
+	    },
+	    error: function(error) {
+	      console.error('Ajax request failed');
+	    }
+	  });
+	});
+
+</script>

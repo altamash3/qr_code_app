@@ -1,0 +1,2 @@
+class Qrcode < ApplicationRecord
+end

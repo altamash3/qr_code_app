@@ -1,0 +1,7 @@
+{
+  "name": "qrcodeapp",
+  "private": true,
+  "dependencies": {
+    "active_material": "^2.0.2"
+  }
+}

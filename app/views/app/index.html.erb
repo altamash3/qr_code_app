@@ -1,0 +1,68 @@
+<div class="page-container">
+	<header class="">
+		<img src="<%= asset_path("qrcode_header.png")%>" style="width: 100%;" >
+	</header>
+		<div id="login_admin" class="page-btn">Login</div>
+		<br>
+		<div id="signup_admin" class="page-btn">Sign up</div>
+	<div class="login-lower-section">
+		<div class="page-body page-bd-login">
+			<div class="aadhaar-frm-wrpr" style="box-shadow: none;margin: 0;padding:0;">
+				<div class="login-nametxt">Hi <%= @user&.username %> </div>
+				<!-- <div class="ref-code d-none">Referral code</div> -->
+				<div class="login-msg-txt">Let’s start by generating your Qr code</div>
+				<div class="form-floating" id="mobile-tick">
+			        <input type="text" class="form-control input-mobile-checked" id="mobile-number" maxlength="1000" placeholder="Input your data for QR" name="mobile-number">
+			        <label for="mobile-number">Input your data for QR</label>
+			        <span id="mob-number-error" class="ferror d-none"></span>
+			    </div>
+				<footer class="login-footer-btn">
+					<div id="generate_otp" class="page-btn page-btn-arrow page-btn-disabled">Submit&nbsp;<img src="<%#= asset_path("img/arrow-btn.svg") %>"></div>
+				</footer>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	$("#mobile-number").on('input', function(e) {
+      var value = $(this).val();
+
+      if (value.length == 0) {
+        $("#generate_otp").addClass("page-btn-disabled");
+      } else {
+        $("#generate_otp").removeClass("page-btn-disabled");
+      }
+    });
+
+	$("#generate_otp").on("click", function(e) {
+	  e.preventDefault();
+	  var value = $("#mobile-number").val();
+	  // callApi();
+	  $.ajax({
+	    url: 'app/generate_qr',
+	    type: 'GET',
+	    dataType: 'json',
+	    data: {'mobile': value},
+	    success: function(response) {
+	      console.log(response.status);
+	      console.log(response.qr_code);
+	      window.location.replace('app/qrpage');
+	    },
+	    error: function(error) {
+	      console.error('Ajax request failed');
+	    }
+	  });
+	});
+
+	$("#login_admin").on("click", function(e) {
+	  e.preventDefault();
+	  window.location.replace('admin/login');
+	});
+
+	$("#signup_admin").on("click", function(e) {
+	  e.preventDefault();
+	  window.location.replace('app/sign_up');
+	});
+
+</script>

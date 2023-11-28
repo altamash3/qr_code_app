@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Qrcodes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Facts</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @qrcodes.each do |qrcode| %>
+      <tr>
+        <td><%= qrcode.name %></td>
+        <td><%= qrcode.facts %></td>
+        <td><%= link_to 'Show', qrcode %></td>
+        <td><%= link_to 'Edit', edit_qrcode_path(qrcode) %></td>
+        <td><%= link_to 'Destroy', qrcode, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Qrcode', new_qrcode_path %>
