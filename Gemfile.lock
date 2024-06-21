@@ -159,6 +159,7 @@ GEM
     mini_portile2 (2.4.0)
     minitest (5.15.0)
     mutex_m (0.2.0)
+    mysql2 (0.5.1)
     net-scp (4.0.0)
       net-ssh (>= 2.6.5, < 8.0.0)
     net-sftp (4.0.0)
@@ -294,6 +295,7 @@ DEPENDENCIES
   devise
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
+  mysql2 (= 0.5.1)
   puma (~> 3.7)
   rails (~> 5.1.7)
   rqrcode (~> 2.0)

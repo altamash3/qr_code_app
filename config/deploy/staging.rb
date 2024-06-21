@@ -63,3 +63,5 @@
 set :rails_env, 'staging'
 set :puma_env, fetch(:rack_env, fetch(:rails_env, 'staging'))
 server '13.233.89.244', user: 'deploy', roles: %w{web app db}
+set :branch, :master #use `git rev-parse --abbrev-ref HEAD`.chomp for pick current branch
+set :deploy_to, '/home/deploy/qr_code_app'

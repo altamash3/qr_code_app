@@ -3,7 +3,7 @@
 lock "~> 3.18.1"
 
 set :application, 'qr_code_app'
-set :repo_url, '<git application path>' # Edit this to match your repository
+set :repo_url, 'https://github.com/altamash3/qr_code_app' # Edit this to match your repository
 set :branch, :master #use `git rev-parse --abbrev-ref HEAD`.chomp for pick current branch
 set :deploy_to, '/home/deploy/qr_code_app'
 set :pty, true
